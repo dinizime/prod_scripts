@@ -1,0 +1,20 @@
+{
+  "name": "prod_scripts",
+  "version": "0.0.1",
+  "description": "Scripts de produção",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/1cgeo/prod_scripts"
+  },
+  "author": "DSG/1CGEO <diniz.felipe@eb.mil.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1cgeo/prod_scripts/issues"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "csv-parser": "^2.3.2",
+    "pg-promise": "^10.4.4",
+    "pgtools": "^0.3.0"
+  }
+}
