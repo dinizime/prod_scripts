@@ -1,0 +1,3 @@
+HOST,PORTA,BANCO,CAMINHO_ARQUIVO
+localhost,5432,castro_1,D:\Desenvolvimento\prod_scripts\castro_1.sql
+localhost,5432,danilo_1,D:\Desenvolvimento\prod_scripts\danilo_1.sql

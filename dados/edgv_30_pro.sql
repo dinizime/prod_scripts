@@ -2962,6 +2962,32 @@ ALTER TABLE edgv.llp_ponto_controle_p
 
 ALTER TABLE edgv.llp_ponto_controle_p ALTER COLUMN situacao_marco SET DEFAULT 9999;
 
+
+CREATE TABLE edgv.aux_moldura_a(
+	 id serial NOT NULL,
+	 nome varchar(255) NOT NULL,
+	 mi varchar(255) NOT NULL,
+	 observacao VARCHAR(255),
+	 geom geometry(MultiPolygon, 31982),
+	 CONSTRAINT aux_moldura_a_pk PRIMARY KEY (id)
+	 WITH (FILLFACTOR = 80)
+);
+CREATE INDEX aux_moldura_a_geom ON edgv.aux_moldura_a USING gist (geom);
+
+ALTER TABLE edgv.aux_moldura_a OWNER TO postgres;
+
+CREATE TABLE edgv.aux_moldura_area_continua_a(
+	 id serial NOT NULL,
+	 nome varchar(255) NOT NULL,
+	 observacao VARCHAR(255),
+	 geom geometry(MultiPolygon, 31982),
+	 CONSTRAINT aux_moldura_area_continua_a_pk PRIMARY KEY (id)
+	 WITH (FILLFACTOR = 80)
+);
+CREATE INDEX aux_moldura_area_continua_a_geom ON edgv.aux_moldura_area_continua_a USING gist (geom);
+
+ALTER TABLE edgv.aux_moldura_area_continua_a OWNER TO postgres;
+
 --########################################################
 -- Função explodir multi geometrias
 CREATE EXTENSION IF NOT EXISTS hstore;
@@ -3103,3 +3129,13 @@ ALTER TABLE public.layer_rules
     OWNER to postgres;
 
 GRANT ALL ON TABLE public.layer_rules TO PUBLIC;
+
+--########################################################
+
+GRANT USAGE ON SCHEMA edgv TO public;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA edgv TO public;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA edgv TO public;
+
+GRANT USAGE ON SCHEMA dominios TO public;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA dominios TO public;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA dominios TO public;
